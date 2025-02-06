@@ -3,6 +3,10 @@ import streamlit as st
 #removing next to change from SnowFlake to streamlit og
 #from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col
+import requests
+
+websiteToUse = 'https://www.fruitvice.com/'
+
 
 # Write directly to the app
 st.title(":cocktail: Customise Your Smoothie!" )
@@ -28,7 +32,13 @@ ingredients_list = st.multiselect(
     max_selections=5
 )
 
+smoothie_fruit_response = requests.get(websiteToUse + 'api/fruit/mango')
+sf_df = st.dataframe(data=smoothie_fruit_response.json(), use_container_width=true)
+
+
 if ingredients_list:
+
+    
     ingredients_string = ''
     for fruit_chosen in ingredients_list:
         ingredients_string += fruit_chosen + ' '
