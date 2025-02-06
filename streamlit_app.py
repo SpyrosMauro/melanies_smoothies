@@ -7,7 +7,7 @@ from snowflake.snowpark.functions import col
 # Write directly to the app
 st.title(":cocktail: Customise Your Smoothie!" )
 st.write(
-    """Choose the fruits you want in your custom Smoothie!!
+    """Choose the fruits you want in your custom Smoothie!!!!
     """
 )
 
